@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Western Dress — A History of Silhouette</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500;600&display=swap');
+
+  :root{
+    --ivory:#F6F1EA;
+    --ivory-2:#EFE7DA;
+    --ink:#241E1C;
+    --plum:#5B2436;
+    --plum-2:#7A3348;
+    --rose:#C48A93;
+    --line:rgba(36,30,28,0.15);
+    --max:700px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Jost', 'Helvetica Neue', sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+
+  h1,h2,h3,.display{
+    font-family:'Cormorant Garamond', Georgia, serif;
+    font-weight:500;
+    letter-spacing:0.005em;
+    margin:0;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:94vh;
+    display:flex;
+    align-items:flex-end;
+    background:var(--ink);
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; object-position:center 22%;
+    opacity:0.78;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(36,30,28,0.05) 0%, rgba(36,30,28,0.25) 45%, rgba(36,30,28,0.92) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    padding:0 24px 70px;
+    max-width:780px; margin:0 auto; width:100%;
+    color:var(--ivory);
+  }
+  .hero-kicker{
+    font-size:13px; letter-spacing:0.04em;
+    color:var(--rose);
+    margin-bottom:16px;
+  }
+  .hero h1{
+    font-size:clamp(42px, 8vw, 82px);
+    line-height:1.0;
+    font-style:italic;
+    color:var(--ivory);
+  }
+  .hero p{
+    font-size:17px;
+    color:#E3D9CE;
+    max-width:520px;
+    margin-top:22px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    padding:86px 0 8px;
+    border-top:1px solid var(--line);
+  }
+  .section-head{ margin-bottom:26px; }
+  .eyebrow{
+    font-size:13px;
+    color:var(--plum-2);
+    margin-bottom:10px;
+  }
+  h2{
+    font-size:clamp(28px, 4.5vw, 42px);
+    font-style:italic;
+  }
+
+  p{ margin:0 0 20px; font-size:17px; color:#332B27; }
+  .lede{ font-size:20px; color:var(--ink); }
+
+  .cap{
+    font-size:13px;
+    color:#8A7E73;
+    margin-top:10px;
+    line-height:1.5;
+  }
+
+  .full-image{
+    width:100vw;
+    position:relative; left:50%; right:50%;
+    margin-left:-50vw; margin-right:-50vw;
+    margin:44px 0;
+  }
+  .full-image .wrap{ max-width:1040px; padding:0 24px; }
+  .full-image img{ width:100%; height:auto; }
+
+  /* ---------- TIMELINE (eras) ---------- */
+  .era{
+    display:grid;
+    grid-template-columns:88px 1fr;
+    gap:22px;
+    padding:30px 0;
+    border-top:1px solid var(--line);
+  }
+  .era:first-of-type{ border-top:none; }
+  .era-year{
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px;
+    font-style:italic;
+    color:var(--plum);
+    padding-top:2px;
+  }
+  .era h3{
+    font-size:22px;
+    margin-bottom:8px;
+    font-style:normal;
+  }
+  .era p{ font-size:16px; margin-bottom:0; }
+
+  /* ---------- DRESS TAG GRID ---------- */
+  .tag-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+    margin:34px 0 10px;
+  }
+  .tag-card{
+    border:1px solid var(--line);
+    padding:20px 22px;
+    background:var(--ivory-2);
+    position:relative;
+  }
+  .tag-card::before{
+    content:"";
+    position:absolute; left:0; top:18px; bottom:18px;
+    width:3px;
+    background:var(--rose);
+  }
+  .tag-name{
+    font-family:'Cormorant Garamond', serif;
+    font-size:23px;
+    font-style:italic;
+    color:var(--plum);
+    margin-bottom:6px;
+  }
+  .tag-desc{ font-size:15.5px; color:#3D3530; }
+
+  blockquote{
+    margin:44px 0;
+    padding-left:22px;
+    border-left:3px solid var(--plum);
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:25px;
+    line-height:1.42;
+    color:var(--ink);
+  }
+  blockquote cite{
+    display:block;
+    font-family:'Jost', sans-serif;
+    font-style:normal;
+    font-size:13px;
+    color:#8A7E73;
+    margin-top:12px;
+  }
+
+  .stat-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+    margin:40px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .stat{ background:var(--ivory); padding:22px 20px; }
+  .stat .num{
+    font-family:'Cormorant Garamond', serif;
+    font-size:32px;
+    font-style:italic;
+    color:var(--plum);
+    line-height:1;
+  }
+  .stat .label{ font-size:13px; color:#8A7E73; margin-top:8px; }
+
+  /* ---------- CLOSING ---------- */
+  .finish{
+    background:var(--ink);
+    color:var(--ivory);
+    padding:100px 0 70px;
+    margin-top:90px;
+  }
+  .finish h2{ color:var(--ivory); margin-bottom:22px; }
+  .finish p{ color:#D8CBBF; }
+  .finish .cap{ color:#948577; }
+  .seam{
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--rose), transparent);
+    margin-bottom:40px;
+  }
+
+  footer{
+    background:var(--ink);
+    color:#948577;
+    font-size:12.5px;
+    padding:26px 0 40px;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+
+  @media (min-width:640px){
+    .tag-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:640px){
+    .stat-row{ grid-template-columns:1fr; }
+    section{ padding:64px 0 8px; }
+    .hero{ min-height:86vh; }
+    .era{ grid-template-columns:64px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Little_Black_Dress_(Unsplash).jpg" alt="Woman wearing a little black dress">
+  <div class="hero-content">
+    <div class="hero-kicker">SILHOUETTE, FABRIC, AND TWO CENTURIES OF CHANGE</div>
+    <h1>The Western Dress</h1>
+    <p>From corseted Victorian ball gowns to Chanel's little black dress, the Western dress has spent two hundred years rewriting what a woman's silhouette is allowed to look like. Here's how it happened, and the handful of shapes that still define almost everything hanging in a modern closet.</p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="wrap" style="border-top:none; padding-top:64px;">
+  <p class="lede">"Western dress" is really a shorthand — it covers the garment tradition that grew out of European court fashion and spread, through trade, colonization, film, and mass manufacturing, into the default wardrobe of much of the world. It isn't one dress but a family of silhouettes, each one a response to the fabric, technology, and social rules of its moment. Structured and rigid one decade, loose and liberated the next — the pattern repeats roughly every generation.</p>
+</section>
+
+<!-- SECTION: HISTORY -->
+<section class="wrap" id="history">
+  <div class="section-head">
+    <div class="eyebrow">A SHORT HISTORY</div>
+    <h2>Five Silhouettes That Changed Everything</h2>
+  </div>
+
+  <div class="era">
+    <div class="era-year">1837–1901</div>
+    <div>
+      <h3>The Structured Gown</h3>
+      <p>Victorian fashion built the body as much as it dressed it. Corsets shaped the waist, and skirts ballooned outward first with layered petticoats, then with the hooped cage of the crinoline, and later the back-heavy bustle. A ball gown wasn't just clothing — cut, trim, and fabric quietly announced a family's wealth and standing at a single glance.</p>
+    </div>
+  </div>
+
+  <div class="side-image">
+    <div class="full-image">
+      <div class="wrap">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ball_Gown_ca._1820_-_American.jpg" alt="American ball gown, circa 1820, from the Metropolitan Museum of Art collection">
+        <div class="cap">An early American ball gown, circa 1820, held by the Metropolitan Museum of Art — a precursor to the fuller, more structured silhouettes of the Victorian decades that followed. Image: Wikimedia Commons.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="era">
+    <div class="era-year">1920s</div>
+    <div>
+      <h3>The Flapper Drops the Waist</h3>
+      <p>After World War I, the corset largely disappeared and the silhouette went straight up and down. The flapper dress dropped its waistline to the hips, raised its hem to the knee, and let a woman actually move — dance, drive, work — in a way Victorian dress never allowed. It was less a fashion shift than a social one, worn by a generation of women who had just won the vote.</p>
+    </div>
+  </div>
+
+  <div class="full-image">
+    <div class="wrap">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Violet_Romer_in_flapper_dress,_LC-DIG-ggbain-12393.jpg" alt="Violet Romer wearing a flapper-style dress, early 20th century">
+      <div class="cap">Actress Violet Romer in an early flapper-style dress. The straight, dropped-waist silhouette marked a sharp break from the corseted shapes of the previous century. Image: Library of Congress, via Wikimedia Commons.</div>
+    </div>
+  </div>
+
+  <div class="era">
+    <div class="era-year">1947</div>
+    <div>
+      <h3>Dior's New Look</h3>
+      <p>After years of wartime fabric rationing, Christian Dior's 1947 debut collection went the opposite direction: rounded shoulders, a tightly cinched waist, and a skirt that could use up to 15 yards of fabric. Some called it scandalously wasteful; Vogue called it a revolution. Either way, "the New Look" defined the feminine silhouette for most of the following decade.</p>
+    </div>
+  </div>
+
+  <div class="full-image">
+    <div class="wrap">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Christian_Dior_Fall-Winter_1947_%22Zig-Zag%22_Collection_Dress_(detail).jpg" alt="Detail of a Christian Dior Fall-Winter 1947 Zig-Zag collection dress">
+      <div class="cap">Detail from Christian Dior's Fall-Winter 1947 "Zig-Zag" collection — the same year his debut "New Look" reintroduced a cinched waist and a full skirt after years of wartime austerity. Image: Wikimedia Commons.</div>
+    </div>
+  </div>
+
+  <div class="era">
+    <div class="era-year">1970s</div>
+    <div>
+      <h3>The Wrap Dress Goes to Work</h3>
+      <p>As more women entered the workforce, Diane von Furstenberg's jersey wrap dress became a symbol of a different kind of femininity: comfortable, self-fastening, and equally at home in an office or at dinner. Its front-crossing tie closure had roots stretching back to Orientalist-influenced robes of the 19th century, but von Furstenberg's synthetic-jersey version made it a modern, mass-market staple.</p>
+    </div>
+  </div>
+
+  <div class="full-image">
+    <div class="wrap">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Purple_wrap_dress,_black_leggings.jpg" alt="A woman wearing a purple wrap dress">
+      <div class="cap">A modern wrap dress — the wrap-front silhouette popularized in the 1970s remains one of the most enduring shapes in Western daywear. Image: Wikimedia Commons.</div>
+    </div>
+  </div>
+
+  <div class="era">
+    <div class="era-year">1926 — ongoing</div>
+    <div>
+      <h3>The Little Black Dress</h3>
+      <p>Coco Chanel's 1926 design — simple, calf-length, unadorned — was nicknamed "Chanel's Ford" by Vogue, a nod to the Model T's promise of something well-made, affordable, and endlessly useful. A century later, the little black dress is less a specific garment than a category: one dark, simply cut dress every wardrobe is assumed to contain.</p>
+    </div>
+  </div>
+</section>
+
+<blockquote class="wrap">
+  "Fashion fades, only style remains the same."
+  <cite>— attributed to Coco Chanel</cite>
+</blockquote>
+
+<!-- SECTION: TYPES -->
+<section class="wrap" id="types">
+  <div class="section-head">
+    <div class="eyebrow">THE DRESS FAMILY TREE</div>
+    <h2>Eight Silhouettes, Explained</h2>
+  </div>
+  <p>Underneath the decades of trends, almost every Western dress on the market today is a variation on a small set of base silhouettes — defined by where the fabric is fitted, where it's released, and how it closes.</p>
+
+  <div class="tag-grid">
+    <div class="tag-card">
+      <div class="tag-name">A-line</div>
+      <div class="tag-desc">Fitted through the bodice, gradually widening toward the hem in the shape of a capital "A." Flattering on nearly every body type, which is why it has stayed a default choice since the 1950s.</div>
+    </div>
+    <div class="tag-card">
+      <div class="tag-name">Sheath</div>
+      <div class="tag-desc">Cut close to the body from shoulder to hem, with little to no flare. Popularized in the 1950s–60s as a sleeker alternative to full-skirted styles; the classic "office" or "cocktail" dress shape.</div>
+    </div>
+    <div class="tag-card">
+      <div class="tag-name">Wrap</div>
+      <div class="tag-desc">Closes by crossing one side of fabric over the other and tying or fastening at the waist, forming a V-neckline. Adjustable, forgiving, and famously popularized by Diane von Furstenberg in 1974.</div>
+    </div>
+  </div>
+  <div class="tag-grid">
+    <div class="tag-card">
+      <div class="tag-name">Shift</div>
+      <div class="tag-desc">A straight, unfitted cut that hangs from the shoulders without a defined waist — the 1960s mod uniform, echoing the loose lines of the 1920s flapper before it.</div>
+    </div>
+    <div class="tag-card">
+      <div class="tag-name">Ball gown</div>
+      <div class="tag-desc">Fitted bodice, dramatically full skirt, floor length. The direct descendant of the Victorian evening gown, reserved today almost entirely for weddings and formal events.</div>
+    </div>
+    <div class="tag-card">
+      <div class="tag-name">Maxi</div>
+      <div class="tag-desc">Any silhouette extended to ankle or floor length. Surged in the late 1960s and early '70s alongside bohemian and folk-inspired fashion movements.</div>
+    </div>
+  </div>
+  <div class="tag-grid">
+    <div class="tag-card">
+      <div class="tag-name">Shirt dress</div>
+      <div class="tag-desc">Built like a button-front shirt, extended into a dress length — collar, cuffs, and all. Borrows directly from menswear tailoring, a trend that runs through most of 20th-century women's fashion.</div>
+    </div>
+    <div class="tag-card">
+      <div class="tag-name">Fit-and-flare</div>
+      <div class="tag-desc">Fitted at the waist, then released into a fuller skirt below — related to the A-line but with a more defined, cinched waistline, echoing Dior's 1947 New Look silhouette.</div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="stat-row">
+    <div class="stat">
+      <div class="num">1926</div>
+      <div class="label">The year Coco Chanel's little black dress was first published in Vogue.</div>
+    </div>
+    <div class="stat">
+      <div class="num">15 yds</div>
+      <div class="label">Fabric used in some skirts from Dior's 1947 New Look collection.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: CONSTRUCTION -->
+<section class="wrap" id="construction">
+  <div class="section-head">
+    <div class="eyebrow">HOW A DRESS IS BUILT</div>
+    <h2>Cut, Dart, and Drape</h2>
+  </div>
+  <p>Every one of these silhouettes comes down to a few construction choices repeated in different proportions. <strong>Darts</strong> — folded, stitched wedges of fabric — pull a flat piece of cloth in at the waist to follow the body's curve without extra seams. The <strong>bias cut</strong>, popularized by 1930s designer Madeleine Vionnet, turns the fabric 45 degrees so it stretches and skims the body rather than hanging stiffly — the technique behind most slinky, close-fitting evening dresses. And the number of <strong>seams and panels</strong> in a skirt determines how much it flares: a two-panel shift stays flat, while a gored skirt with six or eight panels can bell out dramatically without any gathering at all.</p>
+  <p>Fabric choice matters just as much as cut. Structured dresses — ball gowns, tailored sheaths — lean on wovens like taffeta, cotton poplin, or wool crepe, which hold a shape. Draped, body-skimming dresses use jersey, silk charmeuse, or other knits that move with the body instead of against it. Most silhouette shifts in fashion history line up with a change in available fabric technology as much as a change in taste.</p>
+</section>
+
+<!-- FINISH -->
+<div class="finish">
+  <div class="wrap">
+    <div class="seam"></div>
+    <div class="eyebrow" style="color:var(--rose);">CLOSING NOTE</div>
+    <h2>Why the Dress Endures</h2>
+    <p>A dress is the simplest possible answer to getting dressed — one garment instead of a coordinated top and bottom — which is part of why it has survived two centuries of upheaval in taste, technology, and gender roles more or less intact as a category, even as its silhouette has been rebuilt from scratch every few decades. Corsets came and went. Hemlines rose and fell by feet, not inches. But the basic idea — one piece of cloth, shaped to a body, worn as a complete outfit — has proven remarkably hard to improve on.</p>
+    <div class="cap">Images throughout this page are sourced from Wikimedia Commons and used under their respective Creative Commons or public domain licenses.</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">An informational overview of Western dress history and silhouette construction, compiled from public historical and museum sources.</div>
+</footer>
+
+</body>
+</html>
